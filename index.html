@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>DPS Calculator</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+        />
+
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+            * {
+                font-family: "Inter", sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="./index.html">
+                    <div class="title is-4">DPS Calculator</div>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a class="button" href="https://theletterish.github.io/">
+                            About
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="block"></div>
+
+        <div class="container columns is-vcentered">
+            <form action="" class="left column is-half">
+                <div class="field">
+                    <label class="label" for="baseDamage">Base Damage <code>BDMG</code></label>
+                    <div class="control">
+                        <input class="input" type="number" step="0.01" min="0" id="baseDamage" name="baseDamage" placeholder="Base damage that each attack does." required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="attackRate">Attack Rate <code>RATE</code></label>
+                    <div class="control">
+                        <input class="input" type="number" step="0.01" min="0" id="attackRate" name="attackRate" placeholder="How many times does your weapon attack in 1 second?"  required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="criticalChance">Critical Chance <code>CRIT</code></label>
+                    <div class="control">
+                        <input class="input" type="number" step="0.01" min="0" max="1" id="criticalChance" name="criticalChance" placeholder="Chance of the attack being a critical hit (0 - 1)." />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="criticalMultiplier">Critical Multiplier <code>CRITMULT</code></label>
+                    <div class="control">
+                        <input class="input" type="number" step="0.01" min="1" id="criticalMultiplier" name="criticalMultiplier" placeholder="Multiplier applied to base damage for critical hit (0 - 1)." />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="difficultyLevel">Difficulty Level <code>DIFF</code></label>
+                    <div class="control">
+                        <input class="input" type="number" step="0.01" min="0" id="difficultyLevel" name="difficultyLevel" placeholder="Difficulty of your game, default is 1 (easy: 1.25, normal: 1, hard: 0.75)." />
+                    </div>
+                </div>
+
+                <div class="buttons mt-4">
+                    <button class="button is-primary" onclick="calculateDPS(event)">Calculate</button>
+                    <button class="button is-primary is-light" type="reset">Reset</button>
+                </div>
+            </form>
+
+            <div class="right column is-half">
+                <div class="result is-flex is-flex-direction-row is-justify-content-center is-align-items-baseline my-5">
+                    <div class="title is-1 m-0" id="result-value">0.00</div>
+                    <div class="title is-4 has-text-grey-light">dps</div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./script.js"></script>
+    </body>
+</html>
